@@ -2,8 +2,14 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-   <div>
+    <div>
       <h1>Home Page</h1>
-   </div>
+      <Image
+        src="/cartoon.jpeg"
+        alt="cartoon Logo"
+        width={400}
+        height={400}
+      />
+    </div>
   );
 }
