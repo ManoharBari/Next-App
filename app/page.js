@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
       <h1>Home Page</h1>
-      {/* Image component - */}
+      {/* Image component - Give dynamic size as per hieght and width*/}
       <Image
         src="/cartoon.jpeg"
         alt="cartoon Logo"
