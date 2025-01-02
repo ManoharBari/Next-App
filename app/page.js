@@ -1,16 +1,25 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+export default function page() {
+  const handleclick = async () => {
+    const data = { name: "john", age: 30 };
+
+    let res = await fetch("/api/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    let resData = await res.json();
+    console.log(resData);
+  };
+
   return (
-    <div>
-      <h1>Home Page</h1>
-      {/* Image component - Give dynamic size as per hieght and width*/}
-      <Image
-        src="/cartoon.jpeg"
-        alt="cartoon Logo"
-        width={400}
-        height={400}
-      />
-    </div>
+    <>
+      <div>API request</div>
+      <button onClick={handleclick}>click me</button>
+    </>
   );
 }
