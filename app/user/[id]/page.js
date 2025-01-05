@@ -1,4 +1,7 @@
 export default async function Page({ params }) {
   const { id } = await params;
-  return <div>My name: {id}</div>;
+  if (id.includes("a")) {
+    return <div>My name: {id}</div>;
+  }
+  return <div>Not found</div>;
 }
