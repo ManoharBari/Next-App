@@ -1,7 +1,8 @@
 export default async function Page({ params }) {
+
+  // for check error page
+  // throw new Error("This is a test error");
+
   const { id } = await params;
-  if (id.includes("a")) {
-    return <div>My name: {id}</div>;
-  }
-  return <div>Not found</div>;
+  return <div>User Name: {id}</div>;
 }
