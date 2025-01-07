@@ -1,7 +1,9 @@
 import React from "react";
 
 async function page() {
-  const data = await fetch("https://api.vercel.app/blog");
+  const data = await fetch("https://api.vercel.app/blog", {
+    revalidate: 3600, 
+  });
   const posts = await data.json();
 
   return (
