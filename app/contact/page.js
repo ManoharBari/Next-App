@@ -2,12 +2,14 @@
 import React, { useState } from "react";
 
 function page() {
-  const [post, setpost] = useState([])
+  const [post, setpost] = useState([]);
 
   async function click() {
-    const data = await fetch("https://api.vercel.app/blog");
+    const data = await fetch("https://api.vercel.app/blog", {
+      revalidate: 3600,
+    });
     const posts = await data.json();
-    setpost(posts)
+    setpost(posts);
   }
 
   return (
