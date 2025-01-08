@@ -1,19 +1,44 @@
+// "use client";
+// import { useRouter, useSearchParams } from "next/navigation";
+// import React from "react";
+
+// function page() {
+//   const router = useRouter();
+//   const searchParams = useSearchParams();
+//   console.log(searchParams);
+//    return (
+//     <div>
+//       <button
+//         onClick={() => {
+//           router.push("/");
+//         }}
+//       >
+//         Home
+//       </button>
+//     </div>
+//   );
+// }
+
+// export default page;
+
 "use client";
-import { useRouter } from "next/navigation";
-import React from "react";
+
+import { usePathname } from "next/navigation";
 
 function page() {
-  const router = useRouter();
+  const pathname = usePathname();
+
+  function switchLocale(locale) {
+    // e.g. '/en/about' or '/fr/contact'
+    const newPath = `/${locale}${pathname}`;
+    window.history.replaceState(null, "", newPath);
+  }
+
   return (
-    <div>
-      <button
-        onClick={() => {
-          router.push("/");
-        }}
-      >
-        Home
-      </button>
-    </div>
+    <>
+      <button onClick={() => switchLocale("en")}>English</button>
+      <button onClick={() => switchLocale("fr")}>French</button>
+    </>
   );
 }
 
